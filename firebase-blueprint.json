@@ -1,0 +1,194 @@
+{
+  "entities": {
+    "UserProfile": {
+      "title": "UserProfile",
+      "description": "Authenticated customer profile, saved delivery details, and favorite product IDs.",
+      "type": "object",
+      "properties": {
+        "userId": {
+          "type": "string",
+          "description": "Firebase Auth UID of the customer."
+        },
+        "displayName": {
+          "type": "string",
+          "description": "Customer display name."
+        },
+        "phone": {
+          "type": "string",
+          "description": "Optional customer phone number for delivery contact."
+        },
+        "address": {
+          "type": "string",
+          "description": "Optional saved delivery address."
+        },
+        "notes": {
+          "type": "string",
+          "description": "Optional delivery instructions."
+        },
+        "favoriteIds": {
+          "type": "array",
+          "description": "Bounded list of favorited catalog product IDs."
+        },
+        "createdAt": {
+          "type": "string",
+          "format": "date-time",
+          "description": "Server timestamp when the profile was created (FieldValue.serverTimestamp())."
+        },
+        "updatedAt": {
+          "type": "string",
+          "format": "date-time",
+          "description": "Server timestamp when the profile was last updated (FieldValue.serverTimestamp())."
+        }
+      },
+      "required": [
+        "userId",
+        "displayName",
+        "favoriteIds",
+        "createdAt",
+        "updatedAt"
+      ]
+    },
+    "CartEntry": {
+      "title": "CartEntry",
+      "description": "A catalog product and quantity saved in the user's shopping cart.",
+      "type": "object",
+      "properties": {
+        "userId": {
+          "type": "string",
+          "description": "Firebase Auth UID of the cart owner."
+        },
+        "productId": {
+          "type": "string",
+          "description": "Catalog product identifier matching the document ID."
+        },
+        "quantity": {
+          "type": "integer",
+          "description": "Item quantity between 1 and 99."
+        },
+        "createdAt": {
+          "type": "string",
+          "format": "date-time",
+          "description": "Server timestamp when added to cart (FieldValue.serverTimestamp())."
+        },
+        "updatedAt": {
+          "type": "string",
+          "format": "date-time",
+          "description": "Server timestamp when quantity was updated (FieldValue.serverTimestamp())."
+        }
+      },
+      "required": [
+        "userId",
+        "productId",
+        "quantity",
+        "createdAt",
+        "updatedAt"
+      ]
+    },
+    "MarketOrder": {
+      "title": "MarketOrder",
+      "description": "A customer grocery and cooking gas delivery order.",
+      "type": "object",
+      "properties": {
+        "userId": {
+          "type": "string",
+          "description": "Firebase Auth UID of the customer."
+        },
+        "orderNumber": {
+          "type": "string",
+          "description": "Human-readable order code (e.g. AM-1042)."
+        },
+        "customerName": {
+          "type": "string",
+          "description": "Recipient name for delivery."
+        },
+        "phone": {
+          "type": "string",
+          "description": "Contact phone number for delivery."
+        },
+        "deliveryAddress": {
+          "type": "string",
+          "description": "Street and building delivery address."
+        },
+        "deliveryNotes": {
+          "type": "string",
+          "description": "Optional courier instructions."
+        },
+        "paymentMethod": {
+          "type": "string",
+          "enum": ["cash_on_delivery", "card_on_delivery"],
+          "description": "Selected payment method."
+        },
+        "status": {
+          "type": "string",
+          "enum": ["pending", "preparing", "on_the_way", "delivered", "cancelled"],
+          "description": "Current order lifecycle state."
+        },
+        "itemsSummary": {
+          "type": "string",
+          "description": "Formatted summary of ordered items."
+        },
+        "items": {
+          "type": "array",
+          "description": "Bounded list of line-item maps (productId, nameAr, unitPrice, quantity)."
+        },
+        "totalItems": {
+          "type": "integer",
+          "description": "Total item count across all line items."
+        },
+        "subtotal": {
+          "type": "number",
+          "description": "Subtotal before delivery fee."
+        },
+        "deliveryFee": {
+          "type": "number",
+          "description": "Delivery fee applied to the order."
+        },
+        "totalAmount": {
+          "type": "number",
+          "description": "Final order total."
+        },
+        "createdAt": {
+          "type": "string",
+          "format": "date-time",
+          "description": "Server timestamp when order was placed (FieldValue.serverTimestamp())."
+        },
+        "updatedAt": {
+          "type": "string",
+          "format": "date-time",
+          "description": "Server timestamp when order was last updated (FieldValue.serverTimestamp())."
+        }
+      },
+      "required": [
+        "userId",
+        "orderNumber",
+        "customerName",
+        "phone",
+        "deliveryAddress",
+        "paymentMethod",
+        "status",
+        "itemsSummary",
+        "items",
+        "totalItems",
+        "subtotal",
+        "deliveryFee",
+        "totalAmount",
+        "createdAt",
+        "updatedAt"
+      ]
+    }
+  },
+  "firestore": {
+    "/users/{userId}": {
+      "schema": { "$ref": "#/entities/UserProfile" },
+      "description": "Customer profile, saved delivery address, and favorites."
+    },
+    "/users/{userId}/cart/{productId}": {
+      "schema": { "$ref": "#/entities/CartEntry" },
+      "description": "Customer's persisted shopping cart items."
+    },
+    "/users/{userId}/orders/{orderId}": {
+      "schema": { "$ref": "#/entities/MarketOrder" },
+      "description": "Customer's placed grocery and cooking gas orders."
+    }
+  }
+}

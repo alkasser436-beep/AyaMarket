@@ -1,0 +1,6 @@
+{
+  "name": "Aya's Market",
+  "description": "Native Android grocery, fresh produce, and cooking gas delivery app for Aya's Market.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}

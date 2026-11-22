@@ -1,0 +1,44 @@
+<resources>
+    <string name="app_name">Aya\'s Market</string>
+    <string name="brand_subtitle">متجر آية للتموين والغاز الطازج</string>
+    <string name="auth_headline">مرحباً بك في Aya\'s Market</string>
+    <string name="auth_subheadline">تسوق الخضار الطازجة، المخبوزات، اللحوم، وأسطوانات الغاز مع توصيل سريع لباب بيتك.</string>
+    <string name="auth_google_button">تسجيل الدخول عبر Google</string>
+    <string name="auth_cancelled_notice">تم إلغاء تسجيل الدخول. اضغط للمحاولة مرة أخرى.</string>
+    <string name="auth_missing_config">إعدادات تسجيل الدخول غير مكتملة.</string>
+
+    <string name="nav_market">المتجر</string>
+    <string name="nav_favorites">المفضلة</string>
+    <string name="nav_cart">السلة</string>
+    <string name="nav_orders">طلباتي</string>
+
+    <string name="search_placeholder">ابحث عن غاز، خضار، خبز، لحوم…</string>
+    <string name="section_featured">وصلنا طازجاً اليوم</string>
+    <string name="section_all_products">جميع المنتجات</string>
+    <string name="add_to_cart">أضف للسلة</string>
+    <string name="in_cart_label">في السلة</string>
+    <string name="currency_jod">د.أ</string>
+    <string name="delivery_fee_label">رسوم التوصيل</string>
+    <string name="subtotal_label">المجموع الفرعي</string>
+    <string name="total_label">الإجمالي</string>
+    <string name="free_delivery">توصيل مجاني</string>
+    <string name="checkout_title">إتمام الطلب</string>
+    <string name="checkout_confirm">تأكيد وإرسال الطلب</string>
+    <string name="clear_cart">تفريغ السلة</string>
+    <string name="empty_cart_title">سلتك فارغة</string>
+    <string name="empty_cart_subtitle">أضف أسطوانات الغاز أو الخضار والمخبوزات الطازجة من المتجر.</string>
+    <string name="empty_favorites_title">لا توجد مفضلات بعد</string>
+    <string name="empty_favorites_subtitle">اضغط على أيقونة القلب بجانب أي منتج لحفظه هنا للطلب السريع.</string>
+    <string name="empty_orders_title">لا توجد طلبات سابقة</string>
+    <string name="empty_orders_subtitle">ستظهر هنا جميع طلباتك وحالتها المباشرة فور تأكيد أول طلب.</string>
+    <string name="browse_market">تصفح المتجر</string>
+    <string name="cancel_order">إلغاء الطلب</string>
+    <string name="sign_out">تسجيل الخروج</string>
+    <string name="profile_address_title">بيانات التوصيل المحفوظة</string>
+    <string name="cd_brand_logo">شعار Aya\'s Market</string>
+    <string name="cd_favorite">إضافة للمفضلة</string>
+    <string name="cd_remove">حذف</string>
+    <string name="cd_increase">زيادة الكمية</string>
+    <string name="cd_decrease">إنقاص الكمية</string>
+    <string name="cd_profile">حسابي وعنوان التوصيل</string>
+</resources>
